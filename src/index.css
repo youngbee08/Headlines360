@@ -1,0 +1,8 @@
+@import "tailwindcss";
+/* bg-[#FFDFB9] text-[#A4193D]  */
+body{
+  background-color: #A4193D;
+}
+.navTab,::-webkit-scrollbar{
+  display: none;
+}
