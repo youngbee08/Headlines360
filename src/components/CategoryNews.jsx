@@ -16,22 +16,22 @@ const CategoryNews = () => {
   const categories = [
     {
       csName:"All",
-      nmName:"nigeria",
+      nmName:"general",
       focused:true
     },
     {
-      csName:"Campus",
-      nmName:"nigeria campus",
+      csName:"Sports",
+      nmName:"sports",
       focused:false
     },
     {
-      csName:"Lifestyles",
-      nmName:"nigeria lifestyle",
+      csName:"Science",
+      nmName:"science",
       focused:false
     },
     {
       csName:"Entertainment",
-      nmName:"nigeria entertainment",
+      nmName:"entertainment",
       focused:false
     },
   ];
@@ -55,11 +55,11 @@ const CategoryNews = () => {
   },[newsCategory]);
   
   return (
-    <div className="cat flex flex-col my-5 gap-8 overflow-visible overflow-y-scroll h-full lg
+    <div className="cat flex flex-col my-5 gap-8 overflow-visible lg:overflow-y-scroll h-full lg
     :w-[80%] w-full">
       <div className="gap-8 flex-col flex">
         <h2 className="text-xl text-white">Explore more categories</h2>
-        <div className="flex gap-3 items-center overflow-x-scroll navTab">
+        <div className="flex gap-3 items-center overflow-x-scroll">
           {
             categories.map((element,key)=>(
               <Navtabs focused={key === focused ? true : false} content={`${element.csName}`} action={()=> switchCategory(element,key)} key={key}/>
@@ -72,7 +72,7 @@ const CategoryNews = () => {
         loading ? (<Spinner/>) :(
           !news ? (<NetworkError width={"70%"} action={loadNews}/>) : (
             news.map((element,index)=>(
-              <NewsCard key={index} title={element.title} image={element.urlToImage} description={element.description} viewMore={element.url}/>
+              <NewsCard key={index} title={element.title} image={element.image} description={element.description} viewMore={element.url}/>
             ))
           )
         )

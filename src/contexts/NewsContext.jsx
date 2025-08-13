@@ -7,8 +7,9 @@ const NewsProvider = ({children}) => {
 
   const getLatestNews = async (newsCategory)=>{
     try {
-      const res = await fetch(`${newsBaseUrl}/v2/everything?q=${newsCategory}&apikey=${newsApiKey}`);
+      const res = await fetch(`${newsBaseUrl}/api/v4/top-headlines?category=${newsCategory}&lang=en&country=ng&apikey=${newsApiKey}`);
       const newsData = await res.json();
+      console.log(newsData.articles)
       return newsData.articles
     } catch (error) {
       console.log(error)
